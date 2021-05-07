@@ -24,7 +24,7 @@ import ai.core.AI;
 import java.util.Random;
 
 import ga.ScriptTableGenerator.ScriptsTable;
-import ga.config.ConfigurationsGA;
+import ga.config.ConfigurationsLS2;
 import ga.model.Chromosome;
 import ga.model.Population;
 import ga.util.PreSelection;
@@ -515,7 +515,7 @@ public class RoundRobinEliteandSampleIterativeEval implements RatePopulation {
 		HashSet<Chromosome> samples = new HashSet<>();
 		ArrayList<Chromosome> temp = new ArrayList<>(population.getChromosomes().keySet());
 		
-		while (samples.size() < ConfigurationsGA.QTD_ENEMIES_SAMPLE_RANDOM) {
+		while (samples.size() < ConfigurationsLS2.QTD_ENEMIES_SAMPLE_RANDOM) {
 			
 			Chromosome cTemp;
 			do {

@@ -24,7 +24,7 @@ import javax.security.auth.kerberos.DelegationPermission;
 
 import ai.synthesis.grammar.dslTree.interfacesDSL.iDSL;
 import ga.ScriptTableGenerator.ScriptsTable;
-import ga.config.ConfigurationsGA;
+import ga.config.ConfigurationsLS2;
 import ga.model.Chromosome;
 import ga.model.Population;
 import ga.util.Evaluation.RatePopulation;
@@ -54,7 +54,7 @@ public class RunGA {
 	private final String pathUsedCommands = System.getProperty("user.dir").concat("/commandsUsed/");
 	private final String pathTableScriptsAST = System.getProperty("user.dir").concat("/Table/");
 	
-	static int [] frequencyIdsRulesForUCB= new int[ConfigurationsGA.QTD_RULES];
+	static int [] frequencyIdsRulesForUCB= new int[ConfigurationsLS2.QTD_RULES];
 	static int numberCallsUCB11=0;
 	
 	
@@ -74,15 +74,15 @@ public class RunGA {
 		
 		
 		//do {
-			if(ConfigurationsGA.portfolioSetCover)
+			if(ConfigurationsLS2.portfolioSetCover)
 			{
-				scrTable = scrTable.generateScriptsTableFromSetCover(ConfigurationsGA.SIZE_TABLE_SCRIPTS,scriptsSetCover,booleansUsed,curriculumportfolio);
+				scrTable = scrTable.generateScriptsTableFromSetCover(ConfigurationsLS2.SIZE_TABLE_SCRIPTS,scriptsSetCover,booleansUsed,curriculumportfolio);
 			}
 			else
 			{
-				if(!ConfigurationsGA.recoverTable)
+				if(!ConfigurationsLS2.recoverTable)
 				{
-					scrTable = scrTable.generateScriptsTable(ConfigurationsGA.SIZE_TABLE_SCRIPTS);
+					scrTable = scrTable.generateScriptsTable(ConfigurationsLS2.SIZE_TABLE_SCRIPTS);
 				}
 				else
 				{
@@ -98,13 +98,13 @@ public class RunGA {
 
 		do {
 			// Fase 1 = gerar a população inicial
-			if(!ConfigurationsGA.curriculum)
+			if(!ConfigurationsLS2.curriculum)
 			{
-				population = Population.getInitialPopulation(ConfigurationsGA.SIZE_POPULATION, scrTable, pathTableScripts);
+				population = Population.getInitialPopulation(ConfigurationsLS2.SIZE_POPULATION, scrTable, pathTableScripts);
 			}
 			else
 			{
-				population = Population.getInitialPopulationCurriculum(ConfigurationsGA.SIZE_POPULATION, scrTable, pathInitialPopulation);
+				population = Population.getInitialPopulationCurriculum(ConfigurationsLS2.SIZE_POPULATION, scrTable, pathInitialPopulation);
 			}			
 			
 
@@ -124,7 +124,7 @@ public class RunGA {
 			
 			
 			//Get all the used commands
-			if(ConfigurationsGA.removeRules==true)
+			if(ConfigurationsLS2.removeRules==true)
 				population.fillAllCommands(pathTableScripts);
 //		    Iterator it = population.getAllCommandsperGeneration().entrySet().iterator();
 //		    while (it.hasNext()) {
@@ -134,7 +134,7 @@ public class RunGA {
 //		        System.out.println("key "+id+" "+scripts);
 //		    }
 			//Choose the used commands
-			if(ConfigurationsGA.removeRules==true)
+			if(ConfigurationsLS2.removeRules==true)
 				population.chooseusedCommands(pathUsedCommands);
 //		    Iterator it = population.getUsedCommandsperGeneration().entrySet().iterator();
 //		    while (it.hasNext()) {
@@ -146,7 +146,7 @@ public class RunGA {
 //		    }
 			
 			//Remove used commands from all commands
-			if(ConfigurationsGA.removeRules==true)
+			if(ConfigurationsLS2.removeRules==true)
 				population.removeCommands(scrTable,pathTableScripts);
 			
 //		    Iterator it2 = population.getAllCommandsperGeneration().entrySet().iterator();
@@ -181,11 +181,11 @@ public class RunGA {
 			population = evalFunction.evalPopulation(population, this.generations, scrTable);
 			
 			//Get all the used commands
-			if(ConfigurationsGA.removeRules==true)
+			if(ConfigurationsLS2.removeRules==true)
 				population.fillAllCommands(pathTableScripts);
 			
 			//Remove the unused commands
-			if(ConfigurationsGA.removeRules==true)
+			if(ConfigurationsLS2.removeRules==true)
 				population.chooseusedCommands(pathUsedCommands);
 //		    Iterator it = population.getUsedCommandsperGeneration().entrySet().iterator();
 //		    while (it.hasNext()) {
@@ -196,7 +196,7 @@ public class RunGA {
 //		        //it.remove(); // avoids a ConcurrentModificationException
 //		    }
 			//Remove used commands from all commands
-			if(ConfigurationsGA.removeRules==true)
+			if(ConfigurationsLS2.removeRules==true)
 				population.removeCommands(scrTable, pathTableScripts);
 
 			// atualiza a geração
@@ -207,7 +207,7 @@ public class RunGA {
 			population.printWithValue(f0);
 			f0.flush();
 			
-			if(ConfigurationsGA.UCB1==true)
+			if(ConfigurationsLS2.UCB1==true)
 			{
 				Log_Facade.shrinkRewardTable();
 				System.out.println("call shrink");
@@ -224,7 +224,7 @@ public class RunGA {
 	}
 
 	private boolean resetPopulation(Population population2) {
-		if (ConfigurationsGA.RESET_ENABLED) {
+		if (ConfigurationsLS2.RESET_ENABLED) {
 			if (population2.isPopulationValueZero()) {
 				System.out.println("Population reset!");
 				return true;
@@ -238,7 +238,7 @@ public class RunGA {
 	}
 
 	private boolean continueProcess() {
-		switch (ConfigurationsGA.TYPE_CONTROL) {
+		switch (ConfigurationsLS2.TYPE_CONTROL) {
 		case 0:
 			return hasTime();
 
@@ -252,7 +252,7 @@ public class RunGA {
 	}
 
 	private boolean hasGeneration() {
-		if (this.generations < ConfigurationsGA.QTD_GENERATIONS) {
+		if (this.generations < ConfigurationsLS2.QTD_GENERATIONS) {
 			return true;
 		}
 		return false;
@@ -273,7 +273,7 @@ public class RunGA {
 
 		// System.out.println( "Horas " + duracao.toMinutes());
 
-		if (duracao.toHours() < ConfigurationsGA.TIME_GA_EXEC) {
+		if (duracao.toHours() < ConfigurationsLS2.TIME_GA_EXEC) {
 			return true;
 		} else {
 			return false;

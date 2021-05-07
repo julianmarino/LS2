@@ -22,7 +22,7 @@ import ai.synthesis.grammar.dslTree.builderDSLTree.BuilderDSLTreeSingleton;
 import ai.synthesis.grammar.dslTree.interfacesDSL.iDSL;
 import ga.ScriptTableGenerator.ChromosomeScript;
 import ga.ScriptTableGenerator.ScriptsTable;
-import ga.config.ConfigurationsGA;
+import ga.config.ConfigurationsLS2;
 import ga.model.Chromosome;
 import ga.model.Population;
 import util.Cut_Point;
@@ -53,7 +53,7 @@ public class Reproduction {
 	{
 		Population newGeneration;
 		HashMap<Chromosome, BigDecimal> newChromosomes =new HashMap<Chromosome, BigDecimal>();		
-		while(newChromosomes.size()<ConfigurationsGA.SIZE_POPULATION-ConfigurationsGA.SIZE_ELITE)
+		while(newChromosomes.size()<ConfigurationsLS2.SIZE_POPULATION-ConfigurationsLS2.SIZE_ELITE)
 		{
 			//here we shuffle the list of parents in order to select always two different parents to reproduce
 			Collections.shuffle(parents);
@@ -88,7 +88,7 @@ public class Reproduction {
 			if(newChromosomes.containsKey(child))
 			{
 				Chromosome tChom = new Chromosome();
-				int sizeCh=rand.nextInt(ConfigurationsGA.SIZE_CHROMOSOME)+1;
+				int sizeCh=rand.nextInt(ConfigurationsLS2.SIZE_CHROMOSOME)+1;
 				for (int j = 0; j < sizeCh; j++) {
 					tChom.addGene(rand.nextInt(scrTable.getCurrentSizeTable()));
 				}
@@ -106,8 +106,8 @@ public class Reproduction {
 	{
 		Population newGeneration;
 		HashMap<Chromosome, BigDecimal> newChromosomes =new HashMap<Chromosome, BigDecimal>();		
-		int numberEliteMutated=ConfigurationsGA.SIZE_ELITE;
-		while(newChromosomes.size()<(ConfigurationsGA.SIZE_POPULATION-ConfigurationsGA.SIZE_ELITE-ConfigurationsGA.SIZE_INVADERS-numberEliteMutated))
+		int numberEliteMutated=ConfigurationsLS2.SIZE_ELITE;
+		while(newChromosomes.size()<(ConfigurationsLS2.SIZE_POPULATION-ConfigurationsLS2.SIZE_ELITE-ConfigurationsLS2.SIZE_INVADERS-numberEliteMutated))
 		{
 			//here we shuffle the list of parents in order to select always two different parents to reproduce
 			Collections.shuffle(parents);
@@ -177,7 +177,7 @@ public class Reproduction {
 			if(newChromosomes.containsKey(child1))
 			{
 				Chromosome tChom = new Chromosome();
-				int sizeCh=rand.nextInt(ConfigurationsGA.SIZE_CHROMOSOME)+1;
+				int sizeCh=rand.nextInt(ConfigurationsLS2.SIZE_CHROMOSOME)+1;
 				for (int j = 0; j < sizeCh; j++) {
 					tChom.addGene(rand.nextInt(scrTable.getCurrentSizeTable()));
 				}
@@ -187,7 +187,7 @@ public class Reproduction {
 			if(newChromosomes.containsKey(child2))
 			{
 				Chromosome tChom = new Chromosome();
-				int sizeCh=rand.nextInt(ConfigurationsGA.SIZE_CHROMOSOME)+1;
+				int sizeCh=rand.nextInt(ConfigurationsLS2.SIZE_CHROMOSOME)+1;
 				for (int j = 0; j < sizeCh; j++) {
 					tChom.addGene(rand.nextInt(scrTable.getCurrentSizeTable()));
 				}
@@ -209,8 +209,8 @@ public class Reproduction {
 	{
 		Population newGeneration;
 		HashMap<Chromosome, BigDecimal> newChromosomes =new HashMap<Chromosome, BigDecimal>();		
-		int numberEliteMutated=ConfigurationsGA.SIZE_ELITE;
-		while(newChromosomes.size()<(ConfigurationsGA.SIZE_POPULATION-ConfigurationsGA.SIZE_ELITE-ConfigurationsGA.SIZE_INVADERS-numberEliteMutated))
+		int numberEliteMutated=ConfigurationsLS2.SIZE_ELITE;
+		while(newChromosomes.size()<(ConfigurationsLS2.SIZE_POPULATION-ConfigurationsLS2.SIZE_ELITE-ConfigurationsLS2.SIZE_INVADERS-numberEliteMutated))
 		{
 			//here we shuffle the list of parents in order to select always two different parents to reproduce
 			Collections.shuffle(parents);
@@ -276,7 +276,7 @@ public class Reproduction {
 
 			child1.getGenes().addAll(p1sub1);
 			child1.getGenes().addAll(p2sub2);
-			if(child1.getGenes().size()<=ConfigurationsGA.SIZE_CHROMOSOME)
+			if(child1.getGenes().size()<=ConfigurationsLS2.SIZE_CHROMOSOME)
 			{
 				suitablechilds.add(child1);
 				suitableChilds++;
@@ -284,7 +284,7 @@ public class Reproduction {
 			
 			child2.getGenes().addAll(p2sub1);
 			child2.getGenes().addAll(p1sub2);
-			if(child2.getGenes().size()<=ConfigurationsGA.SIZE_CHROMOSOME)
+			if(child2.getGenes().size()<=ConfigurationsLS2.SIZE_CHROMOSOME)
 			{
 				suitablechilds.add(child2);
 				suitableChilds++;
@@ -308,7 +308,7 @@ public class Reproduction {
 			if(newChromosomes.containsKey(child1) || maxtries>=10)
 			{
 				Chromosome tChom = new Chromosome();
-				int sizeCh=rand.nextInt(ConfigurationsGA.SIZE_CHROMOSOME)+1;
+				int sizeCh=rand.nextInt(ConfigurationsLS2.SIZE_CHROMOSOME)+1;
 				for (int j = 0; j < sizeCh; j++) {
 					tChom.addGene(rand.nextInt(scrTable.getCurrentSizeTable()));
 				}
@@ -318,7 +318,7 @@ public class Reproduction {
 			if(newChromosomes.containsKey(child2) || maxtries>=10)
 			{
 				Chromosome tChom = new Chromosome();
-				int sizeCh=rand.nextInt(ConfigurationsGA.SIZE_CHROMOSOME)+1;
+				int sizeCh=rand.nextInt(ConfigurationsLS2.SIZE_CHROMOSOME)+1;
 				for (int j = 0; j < sizeCh; j++) {
 					tChom.addGene(rand.nextInt(scrTable.getCurrentSizeTable()));
 				}
@@ -340,8 +340,8 @@ public class Reproduction {
 	{
 		Population newGeneration;
 		HashMap<Chromosome, BigDecimal> newChromosomes =new HashMap<Chromosome, BigDecimal>();		
-		int numberEliteMutated=ConfigurationsGA.SIZE_ELITE;
-		while(newChromosomes.size()<(ConfigurationsGA.SIZE_POPULATION-ConfigurationsGA.SIZE_ELITE-ConfigurationsGA.SIZE_INVADERS-numberEliteMutated))
+		int numberEliteMutated=ConfigurationsLS2.SIZE_ELITE;
+		while(newChromosomes.size()<(ConfigurationsLS2.SIZE_POPULATION-ConfigurationsLS2.SIZE_ELITE-ConfigurationsLS2.SIZE_INVADERS-numberEliteMutated))
 		{
 			//here we shuffle the list of parents in order to select always two different parents to reproduce
 			Collections.shuffle(parents);
@@ -485,7 +485,7 @@ public class Reproduction {
 			if(newChromosomes.containsKey(child1))
 			{
 				Chromosome tChom = new Chromosome();
-				int sizeCh=rand.nextInt(ConfigurationsGA.SIZE_CHROMOSOME)+1;
+				int sizeCh=rand.nextInt(ConfigurationsLS2.SIZE_CHROMOSOME)+1;
 				for (int j = 0; j < sizeCh; j++) {
 					tChom.addGene(rand.nextInt(scrTable.getCurrentSizeTable()));
 				}
@@ -495,7 +495,7 @@ public class Reproduction {
 			if(newChromosomes.containsKey(child2))
 			{
 				Chromosome tChom = new Chromosome();
-				int sizeCh=rand.nextInt(ConfigurationsGA.SIZE_CHROMOSOME)+1;
+				int sizeCh=rand.nextInt(ConfigurationsLS2.SIZE_CHROMOSOME)+1;
 				for (int j = 0; j < sizeCh; j++) {
 					tChom.addGene(rand.nextInt(scrTable.getCurrentSizeTable()));
 				}
@@ -520,8 +520,8 @@ public class Reproduction {
 	{
 		Population newGeneration;
 		HashMap<Chromosome, BigDecimal> newChromosomes =new HashMap<Chromosome, BigDecimal>();		
-		int numberEliteMutated=ConfigurationsGA.SIZE_ELITE;
-		while(newChromosomes.size()<(ConfigurationsGA.SIZE_POPULATION-ConfigurationsGA.SIZE_ELITE-ConfigurationsGA.SIZE_INVADERS-numberEliteMutated))
+		int numberEliteMutated=ConfigurationsLS2.SIZE_ELITE;
+		while(newChromosomes.size()<(ConfigurationsLS2.SIZE_POPULATION-ConfigurationsLS2.SIZE_ELITE-ConfigurationsLS2.SIZE_INVADERS-numberEliteMutated))
 		{
 			//here we shuffle the list of parents in order to select always two different parents to reproduce
 			Collections.shuffle(parents);
@@ -613,7 +613,7 @@ public class Reproduction {
 			childGenotype1.addAll(p2sub2);
 			arrchildGenotype1 = childGenotype1.toArray(new String[childGenotype1.size()]);
 			
-			if(arrchildGenotype1.length<=ConfigurationsGA.MAX_QTD_COMPONENTS+5)
+			if(arrchildGenotype1.length<=ConfigurationsLS2.MAX_QTD_COMPONENTS+5)
 			{
 				suitablechilds.add(arrchildGenotype1);
 				suitableChilds++;
@@ -623,7 +623,7 @@ public class Reproduction {
 			childGenotype2.addAll(p2sub1);
 			arrchildGenotype2 = childGenotype2.toArray(new String[childGenotype2.size()]);
 			
-			if(arrchildGenotype2.length<=ConfigurationsGA.MAX_QTD_COMPONENTS+1)
+			if(arrchildGenotype2.length<=ConfigurationsLS2.MAX_QTD_COMPONENTS+1)
 			{
 				suitablechilds.add(arrchildGenotype2);
 				suitableChilds++;
@@ -695,7 +695,7 @@ public class Reproduction {
 			if(newChromosomes.containsKey(child1))
 			{
 				Chromosome tChom = new Chromosome();
-				int sizeCh=rand.nextInt(ConfigurationsGA.SIZE_CHROMOSOME)+1;
+				int sizeCh=rand.nextInt(ConfigurationsLS2.SIZE_CHROMOSOME)+1;
 				for (int j = 0; j < sizeCh; j++) {
 					tChom.addGene(rand.nextInt(scrTable.getCurrentSizeTable()));
 				}
@@ -705,7 +705,7 @@ public class Reproduction {
 			if(newChromosomes.containsKey(child2))
 			{
 				Chromosome tChom = new Chromosome();
-				int sizeCh=rand.nextInt(ConfigurationsGA.SIZE_CHROMOSOME)+1;
+				int sizeCh=rand.nextInt(ConfigurationsLS2.SIZE_CHROMOSOME)+1;
 				for (int j = 0; j < sizeCh; j++) {
 					tChom.addGene(rand.nextInt(scrTable.getCurrentSizeTable()));
 				}
@@ -749,9 +749,9 @@ public class Reproduction {
 			newCh.setGenes((ArrayList<Integer>) c.getGenes().clone());
 			for(int i=0; i<newCh.getGenes().size();i++)
 			{
-				double mutatePercent = ConfigurationsGA.MUTATION_RATE;
+				double mutatePercent = ConfigurationsLS2.MUTATION_RATE;
 				boolean m = rand.nextFloat() <= mutatePercent;
-				if(ConfigurationsGA.evolvingScript)
+				if(ConfigurationsLS2.evolvingScript)
 				{
 					m=true;
 				}
@@ -780,9 +780,9 @@ public class Reproduction {
 			newCh.setGenes((ArrayList<Integer>) c.getGenes().clone());
 			for(int i=0; i<newCh.getGenes().size();i++)
 			{
-				double mutatePercent = ConfigurationsGA.MUTATION_RATE;
+				double mutatePercent = ConfigurationsLS2.MUTATION_RATE;
 				boolean m = rand.nextFloat() <= mutatePercent;
-				if(ConfigurationsGA.evolvingScript)
+				if(ConfigurationsLS2.evolvingScript)
 				{
 					m=true;
 				}
@@ -815,11 +815,11 @@ public class Reproduction {
 		HashMap<Chromosome, BigDecimal> newChromosomes = p.getChromosomes();
 		
 		Chromosome tChom;
-		int numberEliteMutated=ConfigurationsGA.SIZE_ELITE; 
-		while (newChromosomes.size()< ConfigurationsGA.SIZE_POPULATION-ConfigurationsGA.SIZE_ELITE-numberEliteMutated) {
+		int numberEliteMutated=ConfigurationsLS2.SIZE_ELITE; 
+		while (newChromosomes.size()< ConfigurationsLS2.SIZE_POPULATION-ConfigurationsLS2.SIZE_ELITE-numberEliteMutated) {
 			//gerar o novo cromossomo com base no tamanho
 			tChom = new Chromosome();
-			int sizeCh=rand.nextInt(ConfigurationsGA.SIZE_CHROMOSOME)+1;
+			int sizeCh=rand.nextInt(ConfigurationsLS2.SIZE_CHROMOSOME)+1;
 			for (int j = 0; j < sizeCh; j++) {
 				tChom.addGene(rand.nextInt(scrTable.getCurrentSizeTable()));
 			}
@@ -836,7 +836,7 @@ public class Reproduction {
 		Chromosome tChom;
 		int idNewScript;
 		
-		while (newChromosomes.size()<ConfigurationsGA.SIZE_POPULATION) {
+		while (newChromosomes.size()<ConfigurationsLS2.SIZE_POPULATION) {
 			
 			BuilderDSLTreeSingleton builder = BuilderDSLTreeSingleton.getInstance();
 	        iDSL iSc1 = builder.buildS1Grammar(scrTable.allBasicFunctionsRedefined,scrTable.allBooleansFunctionsRedefined);
@@ -916,7 +916,7 @@ public class Reproduction {
 	    
 	    for(int i=0;i<parts.length;i++)
 	    {
-	    	double mutatePercent = ConfigurationsGA.MUTATION_RATE_RULE;
+	    	double mutatePercent = ConfigurationsLS2.MUTATION_RATE_RULE;
 	    	boolean m = rand.nextFloat() <= mutatePercent;
 	    	
 	    	if(m)
@@ -1176,7 +1176,7 @@ public class Reproduction {
 			Chromosome origCh=new Chromosome();
 			origCh.setGenes((ArrayList<Integer>) c.getGenes().clone());
 
-			double IncreasePercent = ConfigurationsGA.INCREASING_RATE;
+			double IncreasePercent = ConfigurationsLS2.INCREASING_RATE;
 			boolean m = rand.nextFloat() <= IncreasePercent;
 
 			if(m)
@@ -1197,7 +1197,7 @@ public class Reproduction {
 		
 		double bestUCB1=Double.NEGATIVE_INFINITY;
 		int bestidRule=0;
-		for(int i=0;i<ConfigurationsGA.QTD_RULES;i++)
+		for(int i=0;i<ConfigurationsLS2.QTD_RULES;i++)
 		{
 			//weight/reward
 			double reward=UCB_Facade.getAverageValueFromRule(i);
@@ -1230,7 +1230,7 @@ public class Reproduction {
 			Chromosome origCh=new Chromosome();
 			origCh.setGenes((ArrayList<Integer>) c.getGenes().clone());
 
-			double decreasePercent = ConfigurationsGA.DECREASING_RATE;
+			double decreasePercent = ConfigurationsLS2.DECREASING_RATE;
 			boolean m = rand.nextFloat() <= decreasePercent;
 
 			if(m && newCh.getGenes().size()>=2)
@@ -1271,7 +1271,7 @@ public class Reproduction {
 			if(chromosomesMutated.containsKey(newCh))
 			{
 				Chromosome tChom = new Chromosome();
-				int sizeCh=rand.nextInt(ConfigurationsGA.SIZE_CHROMOSOME)+1;
+				int sizeCh=rand.nextInt(ConfigurationsLS2.SIZE_CHROMOSOME)+1;
 				for (int j = 0; j < sizeCh; j++) {
 					tChom.addGene(rand.nextInt(scrTable.getCurrentSizeTable()));
 				}

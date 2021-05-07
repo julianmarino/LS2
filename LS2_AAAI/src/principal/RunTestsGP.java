@@ -11,7 +11,7 @@ import java.util.HashSet;
 import SetCoverSampling.DataRecollection;
 import SetCoverSampling.GameSampling;
 import SetCoverSampling.RunSampling;
-import ga.config.ConfigurationsGA;
+import ga.config.ConfigurationsLS2;
 import ga.model.Chromosome;
 import ga.model.Population;
 import ga.util.PreSelection;
@@ -72,7 +72,7 @@ public class RunTestsGP {
 		}
 		
 
-		for(int i=0;i<ConfigurationsGA.LOOPS_SELFPLAY;i++)
+		for(int i=0;i<ConfigurationsLS2.LOOPS_SELFPLAY;i++)
 		{
 			
 		//* 

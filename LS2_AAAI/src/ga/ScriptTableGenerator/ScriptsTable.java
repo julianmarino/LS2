@@ -25,7 +25,7 @@ import ai.synthesis.dslForScriptGenerator.DSLTableGenerator.ParameterDSL;
 import ai.synthesis.grammar.dslTree.builderDSLTree.BuilderDSLTreeSingleton;
 import ai.synthesis.grammar.dslTree.builderDSLTree.BuilderSketchDSLSingleton;
 import ai.synthesis.grammar.dslTree.interfacesDSL.iDSL;
-import ga.config.ConfigurationsGA;
+import ga.config.ConfigurationsLS2;
 import ga.model.Chromosome;
 import rts.units.UnitTypeTable;
 
@@ -164,7 +164,7 @@ public class ScriptsTable {
 		
 		//This is for redefining the set of commands and booleans
 		Sketch sk;
-		if(ConfigurationsGA.withLasi)
+		if(ConfigurationsLS2.withLasi)
 		{
 			sk=new Sketch(porfolioFromSetCover,booleansUsed);
 		}
@@ -1045,22 +1045,22 @@ public class ScriptsTable {
 				
 				if(m)
 				{
-					if(!(currentValueParameter+ ConfigurationsGA.deltaForMutation>=limitSuperior))
+					if(!(currentValueParameter+ ConfigurationsLS2.deltaForMutation>=limitSuperior))
 					{
 						if(limitSuperior!=limitInferior)
 						{
-							currentValueParameter = currentValueParameter + ConfigurationsGA.deltaForMutation;
+							currentValueParameter = currentValueParameter + ConfigurationsLS2.deltaForMutation;
 						}
 						else
 						{
 							currentValueParameter=limitSuperior;
 						}
 					}
-					else if(!(currentValueParameter- ConfigurationsGA.deltaForMutation<=limitInferior))
+					else if(!(currentValueParameter- ConfigurationsLS2.deltaForMutation<=limitInferior))
 					{
 						if(limitSuperior!=limitInferior)
 						{
-							currentValueParameter = currentValueParameter - ConfigurationsGA.deltaForMutation;
+							currentValueParameter = currentValueParameter - ConfigurationsLS2.deltaForMutation;
 						}
 						else
 						{
@@ -1070,22 +1070,22 @@ public class ScriptsTable {
 				}
 				else
 				{
-					if(!(currentValueParameter- ConfigurationsGA.deltaForMutation<=limitInferior))
+					if(!(currentValueParameter- ConfigurationsLS2.deltaForMutation<=limitInferior))
 					{
 						if(limitSuperior!=limitInferior)
 						{
-							currentValueParameter = currentValueParameter - ConfigurationsGA.deltaForMutation;
+							currentValueParameter = currentValueParameter - ConfigurationsLS2.deltaForMutation;
 						}
 						else
 						{
 							currentValueParameter=limitInferior;
 						}
 					}	
-					else if(!(currentValueParameter+ ConfigurationsGA.deltaForMutation>=limitSuperior))
+					else if(!(currentValueParameter+ ConfigurationsLS2.deltaForMutation>=limitSuperior))
 					{
 						if(limitSuperior!=limitInferior)
 						{
-							currentValueParameter = currentValueParameter + ConfigurationsGA.deltaForMutation;
+							currentValueParameter = currentValueParameter + ConfigurationsLS2.deltaForMutation;
 						}
 						else
 						{
@@ -1216,11 +1216,11 @@ public class ScriptsTable {
 				
 				if(m)
 				{
-					if(!(currentValueParameter+ConfigurationsGA.deltaForMutation>limitSuperior))
+					if(!(currentValueParameter+ConfigurationsLS2.deltaForMutation>limitSuperior))
 					{
 						if(limitSuperior!=limitInferior)
 						{
-							currentValueParameter = currentValueParameter + ConfigurationsGA.deltaForMutation;
+							currentValueParameter = currentValueParameter + ConfigurationsLS2.deltaForMutation;
 						}
 						else
 						{
@@ -1230,11 +1230,11 @@ public class ScriptsTable {
 				}
 				else
 				{
-					if(!(currentValueParameter-ConfigurationsGA.deltaForMutation<=limitInferior))
+					if(!(currentValueParameter-ConfigurationsLS2.deltaForMutation<=limitInferior))
 					{
 						if(limitSuperior!=limitInferior)
 						{
-							currentValueParameter = currentValueParameter - ConfigurationsGA.deltaForMutation;
+							currentValueParameter = currentValueParameter - ConfigurationsLS2.deltaForMutation;
 						}
 						else
 						{
@@ -1380,7 +1380,7 @@ public class ScriptsTable {
 		String genotypeScript = "";
 		int numberComponentsAdded=0;
 		
-		if(ConfigurationsGA.idSketch=="A")
+		if(ConfigurationsLS2.idSketch=="A")
 		{
 			genotypeScript=sk.sketchA(genotypeScript,numberComponentsAdded);
 			//genotypeScript=genotypeScript.substring(0, genotypeScript.length() - 1);
@@ -1388,7 +1388,7 @@ public class ScriptsTable {
 
 		}
 		
-		else if(ConfigurationsGA.idSketch=="B")
+		else if(ConfigurationsLS2.idSketch=="B")
 		{
 			genotypeScript=sk.sketchBLimitedSize(genotypeScript,numberComponentsAdded);
 			//genotypeScript=genotypeScript.substring(0, genotypeScript.length() - 1);
@@ -1396,7 +1396,7 @@ public class ScriptsTable {
 
 		}
 		
-		else if(ConfigurationsGA.idSketch=="C")
+		else if(ConfigurationsLS2.idSketch=="C")
 		{
 			genotypeScript=sk.sketchCLimitedSize(genotypeScript,numberComponentsAdded);
 		}

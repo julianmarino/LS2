@@ -40,7 +40,7 @@ import ai.synthesis.grammar.dslTree.interfacesDSL.iDSL;
 import ai.synthesis.grammar.dslTree.utils.ReduceDSLController;
 import ai.synthesis.runners.roundRobinLocal.SmartRRGxGRunnable;
 import ga.ScriptTableGenerator.ScriptsTable;
-import ga.config.ConfigurationsGA;
+import ga.config.ConfigurationsLS2;
 import ga.model.Chromosome;
 import ga.model.Population;
 import ga.util.PreSelection;
@@ -77,7 +77,7 @@ public class RunTests_SetCover_GP {
 		PrintWriter writer = new PrintWriter("Best.txt", "UTF-8");
 		
 		
-		for(int j=0; j<ConfigurationsGA.numbersystematicTests; j++)
+		for(int j=0; j<ConfigurationsLS2.numbersystematicTests; j++)
 		{
 
 
@@ -90,10 +90,10 @@ public class RunTests_SetCover_GP {
 		deleteAllSubfolders();
 
 
-		if(!ConfigurationsGA.fixedTrace)
+		if(!ConfigurationsLS2.fixedTrace)
 		{
 			//Here we play with a search-based algorithm and save the path
-			for(int i=0;i<ConfigurationsGA.numberA3Ngames;i++)
+			for(int i=0;i<ConfigurationsLS2.numberA3Ngames;i++)
 			{
 				try {
 					RunSampling sampling=new RunSampling(i,pathTableScriptsInit,curriculumportfolio);
@@ -107,11 +107,11 @@ public class RunTests_SetCover_GP {
 
 		int bestFinalIndividual=0;
 
-		for(int i=1;i<ConfigurationsGA.LOOPS_SELFPLAY;i++)
+		for(int i=1;i<ConfigurationsLS2.LOOPS_SELFPLAY;i++)
 		{
 			String scriptsSetCover="";
 			HashSet<String> booleansUsedRedefined=new HashSet<>();
-			if(!ConfigurationsGA.fixedTrace)
+			if(!ConfigurationsLS2.fixedTrace)
 			{			
 				//SC
 				RunScriptByState sc = new RunScriptByState();
@@ -145,7 +145,7 @@ public class RunTests_SetCover_GP {
 			//fEval = new SetCoverEval();
 
 			//rodamos o GA
-			if(ConfigurationsGA.fixedTrace)
+			if(ConfigurationsLS2.fixedTrace)
 			{
 				File arqTour = new File(pathFixedTrace);
 

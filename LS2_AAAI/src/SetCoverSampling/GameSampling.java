@@ -20,7 +20,7 @@ import ai.competition.capivara.CmabAssymetricMCTS;
 import ai.core.AI;
 import ai.evaluation.SimpleSqrtEvaluationFunction3;
 import ga.ScriptTableGenerator.ScriptsTable;
-import ga.config.ConfigurationsGA;
+import ga.config.ConfigurationsLS2;
 import gui.PhysicalGameStatePanel;
 import ai.configurablescript.BasicExpandedConfigurableScript;
 import ai.configurablescript.ScriptsCreator;
@@ -256,7 +256,7 @@ public class GameSampling {
         
         long nextTimeToUpdate = System.currentTimeMillis() + PERIOD;
         int idState=0;
-        if(ConfigurationsGA.withLasi)
+        if(ConfigurationsLS2.withLasi)
         	totalCyclesforGame=1200000;
         do {
             if (System.currentTimeMillis() >= nextTimeToUpdate) {

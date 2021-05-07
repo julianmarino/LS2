@@ -28,7 +28,7 @@ import ai.synthesis.grammar.dslTree.utils.ReduceDSLController;
 import java.util.Random;
 
 import ga.ScriptTableGenerator.ScriptsTable;
-import ga.config.ConfigurationsGA;
+import ga.config.ConfigurationsLS2;
 import ga.model.Chromosome;
 import ga.model.Population;
 import ga.util.PreSelection;
@@ -383,9 +383,9 @@ public class RoundRobinEliteandSampleEval implements RatePopulation {
 		while(currentmatchesPerformed<matches.size())
 		{
 			int limitProcesses;
-			if(matches.size()-currentmatchesPerformed>=ConfigurationsGA.nProcessorsThreads)
+			if(matches.size()-currentmatchesPerformed>=ConfigurationsLS2.nProcessorsThreads)
 			{
-				limitProcesses=ConfigurationsGA.nProcessorsThreads;
+				limitProcesses=ConfigurationsLS2.nProcessorsThreads;
 			}
 			else
 			{
@@ -444,7 +444,7 @@ public class RoundRobinEliteandSampleEval implements RatePopulation {
 			//uniqueCommandsPopulation.get(idIA2).addAll(singleMatches.get(i).getAllCommandIA2()); 
 		}
 
-		if(ConfigurationsGA.removeRulesAST)
+		if(ConfigurationsLS2.removeRulesAST)
 		{
 			population=updatePopulationRemotionRules(population,iasPopulation);
 		}
@@ -517,9 +517,9 @@ public class RoundRobinEliteandSampleEval implements RatePopulation {
 			BigDecimal toUpdate = population.getChromosomes().get(ch);
 			iDSL originalScript=(iDSL) scriptsAST.get(idScript);
 			String originalScriptStr=originalScript.translate();
-			System.out.println("before remotion "+originalScriptStr);
+			//System.out.println("before remotion "+originalScriptStr);
 			ReduceDSLController.removeUnactivatedParts(originalScript, new ArrayList<>(((DslAI) iasPopulation.get(idScript)).getCommands()));
-			System.out.println("after remotion "+originalScript.translate());
+			//System.out.println("after remotion "+originalScript.translate());
 			//updateReferencesforScript(originalScriptStr,originalScript.translate(),idScript);
 			//population=addToPopulation(newScript,population,toUpdate);
 		}
@@ -572,7 +572,7 @@ public class RoundRobinEliteandSampleEval implements RatePopulation {
 		HashSet<Chromosome> samples = new HashSet<>();
 		ArrayList<Chromosome> temp = new ArrayList<>(population.getChromosomes().keySet());
 		//System.out.print("Random set ");
-		while (samples.size() < ConfigurationsGA.QTD_ENEMIES_SAMPLE_RANDOM) {
+		while (samples.size() < ConfigurationsLS2.QTD_ENEMIES_SAMPLE_RANDOM) {
 
 			Chromosome cTemp;
 			do {

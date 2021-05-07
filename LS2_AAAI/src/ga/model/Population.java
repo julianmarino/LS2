@@ -27,7 +27,7 @@ import java.util.stream.Collectors;
 import ai.synthesis.grammar.dslTree.builderDSLTree.BuilderDSLTreeSingleton;
 import ai.synthesis.grammar.dslTree.interfacesDSL.iDSL;
 import ga.ScriptTableGenerator.ScriptsTable;
-import ga.config.ConfigurationsGA;
+import ga.config.ConfigurationsLS2;
 
 public class Population {
 	
@@ -118,7 +118,7 @@ public class Population {
 		newChromosomes.put(tChom, BigDecimal.ZERO);
 		int idNewScript;
 		
-		while (newChromosomes.size()<ConfigurationsGA.SIZE_POPULATION) {
+		while (newChromosomes.size()<ConfigurationsLS2.SIZE_POPULATION) {
 			
 			iDSL sc_cloned = (iDSL) scrTable.scriptsAST.get(rand.nextInt(scrTable.scriptsAST.size())).clone();
 			//System.out.println("sc_cloned "+sc_cloned.translate());
@@ -238,10 +238,10 @@ public class Population {
 		HashMap<Chromosome, BigDecimal> newChromosomes = new HashMap<>();
 		
 		Chromosome tChom;
-		for (int i = 0; i < ConfigurationsGA.SIZE_POPULATION; i++) {
+		for (int i = 0; i < ConfigurationsLS2.SIZE_POPULATION; i++) {
 			//gerar o novo cromossomo com base no tamanho
 			tChom = new Chromosome();
-			for (int j = 0; j < ConfigurationsGA.SIZE_CHROMOSOME; j++) {
+			for (int j = 0; j < ConfigurationsLS2.SIZE_CHROMOSOME; j++) {
 				tChom.addGene(gene);
 			}
 			newChromosomes.put(tChom, BigDecimal.ZERO);
@@ -468,10 +468,10 @@ public class Population {
 	        //it.remove(); // avoids a ConcurrentModificationException
 	    }
 	    
-	    while(ChromosomesNew.size()<ConfigurationsGA.SIZE_PARENTSFORCROSSOVER)
+	    while(ChromosomesNew.size()<ConfigurationsLS2.SIZE_PARENTSFORCROSSOVER)
 	    {
         	Chromosome newCh = new Chromosome();
-			int sizeCh=rand.nextInt(ConfigurationsGA.SIZE_CHROMOSOME)+1;
+			int sizeCh=rand.nextInt(ConfigurationsLS2.SIZE_CHROMOSOME)+1;
 			for (int j = 0; j < sizeCh; j++) {
 				newCh.addGene(rand.nextInt(scrTable.getCurrentSizeTable()));
 			}

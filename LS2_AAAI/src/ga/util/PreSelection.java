@@ -11,7 +11,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import ga.config.ConfigurationsGA;
+import ga.config.ConfigurationsLS2;
 import ga.model.Chromosome;
 import ga.model.Population;
 
@@ -28,13 +28,13 @@ public class PreSelection {
 		int parentsAdded=0;
 		List<Map.Entry<Chromosome, BigDecimal>> listParents= new ArrayList();
 		List<Map.Entry<Chromosome, BigDecimal>> listCandidates = new ArrayList<Map.Entry<Chromosome, BigDecimal>>(p.getChromosomes().entrySet());
-		while(parentsAdded<ConfigurationsGA.SIZE_PARENTSFORCROSSOVER)
+		while(parentsAdded<ConfigurationsLS2.SIZE_PARENTSFORCROSSOVER)
 		{
 			//here we randomize the list in order to select k random elements for the tournament
 			Collections.shuffle(listCandidates);
 			Map.Entry<Chromosome, BigDecimal> best=null;
 
-			for(int i=0; i<ConfigurationsGA.K_TOURNMENT; i++)
+			for(int i=0; i<ConfigurationsLS2.K_TOURNMENT; i++)
 			{
 
 				if(best==null || listCandidates.get(i).getValue().intValue()>best.getValue().intValue())
@@ -62,7 +62,7 @@ public class PreSelection {
 		for (Iterator it = list.iterator(); it.hasNext();) {
 			Map.Entry entry = (Map.Entry) it.next();
 			sortedHashMap.put(entry.getKey(), entry.getValue());
-			if(sortedHashMap.size()==ConfigurationsGA.SIZE_ELITE)
+			if(sortedHashMap.size()==ConfigurationsLS2.SIZE_ELITE)
 			{
 				break;
 			}
@@ -108,7 +108,7 @@ public class PreSelection {
 		for (Iterator it = list.iterator(); it.hasNext();) {
 			Map.Entry entry = (Map.Entry) it.next();
 			sortedHashMap.put(entry.getKey(), entry.getValue());
-			if(sortedHashMap.size()==ConfigurationsGA.QTD_ENEMIES_SAMPLE_ELITE)
+			if(sortedHashMap.size()==ConfigurationsLS2.QTD_ENEMIES_SAMPLE_ELITE)
 			{
 				break;
 			}

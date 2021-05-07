@@ -9,7 +9,7 @@ import ai.configurablescript.BasicExpandedConfigurableScript;
 import ai.configurablescript.ScriptsCreator;
 import ai.core.AI;
 import ga.ScriptTableGenerator.ScriptsTable;
-import ga.config.ConfigurationsGA;
+import ga.config.ConfigurationsLS2;
 import ga.model.Chromosome;
 
 import java.io.BufferedReader;
@@ -61,7 +61,7 @@ public class DataRecollection {
 		{
 			
 			ScriptsTable scrTable = new ScriptsTable(pathTableSetCover);
-			scrTable = scrTable.generateScriptsTable(ConfigurationsGA.SIZE_TABLE_SCRIPTS);
+			scrTable = scrTable.generateScriptsTable(ConfigurationsLS2.SIZE_TABLE_SCRIPTS);
 			scrTable.setCurrentSizeTable(scrTable.getScriptTable().size());
 		
 

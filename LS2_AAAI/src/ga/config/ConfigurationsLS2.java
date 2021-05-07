@@ -1,6 +1,6 @@
 package ga.config;
 
-public final class ConfigurationsGA {
+public final class ConfigurationsLS2 {
 	public static final int SIZE_CHROMOSOME = 1;
 	 public static final int SIZE_POPULATION = 90;
 	 public static final int NUMBER_JOBS = 39;

@@ -13,7 +13,7 @@ import java.util.Random;
 import ai.synthesis.grammar.dslTree.builderDSLTree.BuilderDSLTreeSingleton;
 import ai.synthesis.grammar.dslTree.interfacesDSL.iDSL;
 import ga.ScriptTableGenerator.ScriptsTable;
-import ga.config.ConfigurationsGA;
+import ga.config.ConfigurationsLS2;
 import ga.model.Chromosome;
 import ga.model.Population;
 
@@ -46,7 +46,7 @@ public class Selection {
 		//Population newPopulation=rp.UniformCrossover();
 		
 		Population newPopulation;
-		if(ConfigurationsGA.evolvingScript)
+		if(ConfigurationsLS2.evolvingScript)
 		{
 			newPopulation=rp.CrossoverSingleScriptLimitedSize();
 		}
@@ -58,7 +58,7 @@ public class Selection {
 		//System.out.println("printing the new population after crossover");
 		//printMap(newPopulation.getChromosomes());
 		newPopulation=rp.mutation(newPopulation);
-		if(ConfigurationsGA.INCREASING_INDEX==true)
+		if(ConfigurationsLS2.INCREASING_INDEX==true)
 		{
 		newPopulation=rp.IncreasePopulation(newPopulation);
 		newPopulation=rp.DecreasePopulation(newPopulation);
@@ -126,7 +126,7 @@ public class Selection {
 		System.out.println("Elite (Best script last iteration) "+scrTable.scriptsAST.get(listElite.get(0).getGenes().get(0)).translate() );
 //		System.out.println("looking in the original table "+scrTable.getScriptTable().get(scrTable.scriptsAST.get(listElite.get(0).getGenes().get(0)).translate()));
 		//System.out.println("Starting genration mutations");
-		while (newChromosomes.size()<ConfigurationsGA.SIZE_POPULATION-ConfigurationsGA.SIZE_INVADERS) {
+		while (newChromosomes.size()<ConfigurationsLS2.SIZE_POPULATION-ConfigurationsLS2.SIZE_INVADERS) {
 			//System.out.println("sizes matchs2 "+scrTable.getScriptTable().size()+" "+scrTable.scriptsAST.size());
 			
 			iDSL sc_cloned = (iDSL) scrTable.scriptsAST.get(listElite.get(0).getGenes().get(0)).clone();
@@ -216,10 +216,10 @@ public class Selection {
 	}
 	public Population fillWithRandom(Population p,ScriptsTable scrTable)
 	{
-		while(p.getChromosomes().size()<ConfigurationsGA.SIZE_POPULATION)
+		while(p.getChromosomes().size()<ConfigurationsLS2.SIZE_POPULATION)
 		{
 			Chromosome tChom = new Chromosome();
-			int sizeCh=rand.nextInt(ConfigurationsGA.SIZE_CHROMOSOME)+1;
+			int sizeCh=rand.nextInt(ConfigurationsLS2.SIZE_CHROMOSOME)+1;
 			for (int j = 0; j < sizeCh; j++) {
 				tChom.addGene(rand.nextInt(scrTable.getCurrentSizeTable()));
 			}

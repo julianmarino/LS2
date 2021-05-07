@@ -32,7 +32,7 @@ import ai.ScriptsGenerator.GPCompiler.ConditionalGPCompiler;
 import ai.abstraction.pathfinding.AStarPathFinding;
 import ai.abstraction.pathfinding.PathFinding;
 import ga.ScriptTableGenerator.ScriptsTable;
-import ga.config.ConfigurationsGA;
+import ga.config.ConfigurationsLS2;
 import ga.model.Population;
 import ga.util.Evaluation.RatePopulation;
 import rts.GameState;

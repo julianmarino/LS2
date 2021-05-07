@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Random;
 
 import ai.ScriptsGenerator.TableGenerator.FunctionsforGrammar;
-import ga.config.ConfigurationsGA;
+import ga.config.ConfigurationsLS2;
 
 public class Sketch {
 	static Random rand = new Random();
@@ -37,7 +37,7 @@ public class Sketch {
 		allBooleansFunctions=st.allConditionalFunctions();
 		allBooleansFunctionsRedefined=st.allConditionalFunctions();
 		
-		maxComponents=ConfigurationsGA.MAX_QTD_COMPONENTS;
+		maxComponents=ConfigurationsLS2.MAX_QTD_COMPONENTS;
 //		System.out.println(Arrays.toString(allBasicFunctions.toArray()));
 //		System.out.println(Arrays.toString(allBasicFunctionsRedefined.toArray()));
 	}
@@ -48,7 +48,7 @@ public class Sketch {
 		allBasicFunctions=st.allBasicFunctions();
 		allBasicFunctionsRedefined=redefiningCommandsForScripts();
 		allBooleansFunctions=st.allConditionalFunctions();
-		if(ConfigurationsGA.setCoverBooleans)
+		if(ConfigurationsLS2.setCoverBooleans)
 		{
 			allBooleansFunctionsRedefined=redefiningBooleansForScripts();
 			allBooleansMatchingTypeByCommands=st.allBooleansMatchingTypeBYCommands(typesUnitsinCommands);
@@ -84,7 +84,7 @@ public class Sketch {
 			e.printStackTrace();
 		}
 		
-		maxComponents=ConfigurationsGA.MAX_QTD_COMPONENTS;
+		maxComponents=ConfigurationsLS2.MAX_QTD_COMPONENTS;
 	}
 	public String sketchA(String genotypeScript,int numberComponentsAdded) {
 		
@@ -252,7 +252,7 @@ public class Sketch {
 		boolean canCloseParenthesisIf=false;
 		boolean canOpenParenthesisIf=false;
 		boolean isOpenFor=false;
-		int sizeGenotypeScript=ConfigurationsGA.MAX_QTD_COMPONENTS;
+		int sizeGenotypeScript=ConfigurationsLS2.MAX_QTD_COMPONENTS;
 
 		List<itemIf> collectionofIfs= new ArrayList<itemIf>();
 		int continueCoin=0;
@@ -589,7 +589,7 @@ public class Sketch {
 		
 		boolean canCloseParenthesisIf=false;
 		boolean canOpenParenthesisIf=false;
-		int sizeGenotypeScript=ConfigurationsGA.MAX_QTD_COMPONENTS;
+		int sizeGenotypeScript=ConfigurationsLS2.MAX_QTD_COMPONENTS;
 
 		List<itemIf> collectionofIfs= new ArrayList<itemIf>();
 		int continueCoin=0;
