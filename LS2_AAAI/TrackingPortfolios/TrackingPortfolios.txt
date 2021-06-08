@@ -1,6 +1,6 @@
 New Loop
 Player0
- attack(Worker,weakest)
+ if(HaveQtdEnemiesbyType(Ranged,9)) (moveToUnit(Light,Ally,closest)) (moveToUnit(Heavy,Enemy,strongest)) if(HaveQtdUnitsAttacking(Worker,14)) (moveToUnit(Light,Enemy,closest)) (moveToUnit(Worker,Enemy,strongest))
 Player1
- attack(Worker,weakest)
+ if(HaveQtdEnemiesbyType(Ranged,9)) (moveToUnit(Light,Ally,closest)) (moveToUnit(Heavy,Enemy,strongest)) if(HaveQtdUnitsAttacking(Worker,14)) (moveToUnit(Light,Enemy,closest)) (moveToUnit(Worker,Enemy,strongest))
 

@@ -25,7 +25,7 @@ import ga.util.Evaluation.RoundRobinEval;
 import ga.util.Evaluation.RoundRobinIterativeEval;
 import ga.util.Evaluation.RoundRobinSampleEval;
 import ga.util.Evaluation.SetCoverEval;
-import setcoverCalculation.RunSetCoverCalculation;
+import setcoverCalculation.RunLS2;
 import ga.util.Evaluation.FixedScriptedEval;
 
 public class RunTestsSetCover {
@@ -63,7 +63,7 @@ public class RunTestsSetCover {
 		//criei uma classe para controlar a execução do GA.
 		RunScriptByState sc = new RunScriptByState();
 		
-		RunSetCoverCalculation scCalculation = new RunSetCoverCalculation(sc.dataH);
+		RunLS2 scCalculation = new RunLS2(sc.dataH);
 		List<Integer> setCover=scCalculation.getSetCover();
 		curriculumportfolio=setCover.toString();
 		

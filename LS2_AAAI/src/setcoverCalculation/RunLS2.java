@@ -8,11 +8,11 @@ import java.util.List;
 
 import ga.ScriptTableGenerator.ScriptsTable;
 
-public class RunSetCoverCalculation {
+public class RunLS2 {
 	private final static String pathTableScripts = System.getProperty("user.dir").concat("/Table/");
 	List<Integer>  setCover;
 	
-	public RunSetCoverCalculation(HashMap<String, List<Integer>> data) {
+	public RunLS2(HashMap<String, List<Integer>> data) {
 		
 		ScriptsTable st=new ScriptsTable(pathTableScripts);
 		ArrayList<String> basicFunctions= st.allBasicFunctions();

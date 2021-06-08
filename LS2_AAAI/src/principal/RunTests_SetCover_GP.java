@@ -57,7 +57,7 @@ import ga.util.Evaluation.TestSingleMatch;
 import rts.GameState;
 import rts.PhysicalGameState;
 import rts.units.UnitTypeTable;
-import setcoverCalculation.RunSetCoverCalculation;
+import setcoverCalculation.RunLS2;
 import util.TestSingleMatchLeft;
 import util.TestSingleMatchRight;
 import ga.util.Evaluation.FixedScriptedEval;
@@ -116,7 +116,7 @@ public class RunTests_SetCover_GP {
 				//SC
 				RunScriptByState sc = new RunScriptByState();
 
-				RunSetCoverCalculation scCalculation = new RunSetCoverCalculation(sc.dataH);
+				RunLS2 scCalculation = new RunLS2(sc.dataH);
 				List<Integer> setCover=scCalculation.getSetCover();
 				scriptsSetCover=setCover.toString();
 				booleansUsedRedefined=sc.booleansUsed;
