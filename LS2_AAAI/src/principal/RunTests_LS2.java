@@ -57,12 +57,12 @@ import ga.util.Evaluation.TestSingleMatch;
 import rts.GameState;
 import rts.PhysicalGameState;
 import rts.units.UnitTypeTable;
-import setcoverCalculation.RunLS2;
+import setcoverCalculation.RunSetCover;
 import util.TestSingleMatchLeft;
 import util.TestSingleMatchRight;
 import ga.util.Evaluation.FixedScriptedEval;
 
-public class RunTests_SetCover_GP {
+public class RunTests_LS2 {
 
 	private final static String pathTableScriptsInit = System.getProperty("user.dir").concat("/TableInitialPortfolio/");
 	//private static final String pathTableScriptsInit = "TableInitialPortfolio/";
@@ -116,7 +116,7 @@ public class RunTests_SetCover_GP {
 				//SC
 				RunScriptByState sc = new RunScriptByState();
 
-				RunLS2 scCalculation = new RunLS2(sc.dataH);
+				RunSetCover scCalculation = new RunSetCover(sc.dataH);
 				List<Integer> setCover=scCalculation.getSetCover();
 				scriptsSetCover=setCover.toString();
 				booleansUsedRedefined=sc.booleansUsed;
